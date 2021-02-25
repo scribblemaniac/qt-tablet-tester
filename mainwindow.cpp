@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "canvaswindow.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -11,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     setWindowTitle(windowTitle().arg(versionStr));
     ui->title->setText(ui->title->text().arg(versionStr));
+
+    connect(ui->freeDrawButton, &QPushButton::pressed, this, &MainWindow::openFreeDraw);
 }
 
 MainWindow::~MainWindow()
@@ -40,5 +44,12 @@ QString MainWindow::getVersionString()
     // Modifed/Umodifed Qt?
 
     return versionString;
+}
+
+void MainWindow::openFreeDraw()
+{
+    CanvasWindow *window = new CanvasWindow(this);
+    window->setWindowTitle("Free Draw");
+    window->show();
 }
 

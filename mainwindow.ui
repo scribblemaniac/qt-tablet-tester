@@ -30,42 +30,42 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="pressureLevelButton">
       <property name="text">
        <string>Pressure Level Tester</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="tiltButton">
       <property name="text">
        <string>Tilt Tester</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="reportRateButton">
       <property name="text">
        <string>Report Rate Tester</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="eventLoggerButton">
       <property name="text">
        <string>Event Logger</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_5">
+     <widget class="QPushButton" name="freeDrawButton">
       <property name="text">
        <string>Free Draw</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="settingsButton">
       <property name="text">
        <string>Settings</string>
       </property>

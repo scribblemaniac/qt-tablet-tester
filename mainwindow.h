@@ -18,6 +18,8 @@ public:
     static QString getVersionString();
 
 private:
+    void openFreeDraw();
+
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
