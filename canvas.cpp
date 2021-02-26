@@ -49,7 +49,7 @@ void Canvas::paintEvent(QPaintEvent* event)
 void Canvas::resizeEvent(QResizeEvent* event)
 {
     QWidget::resizeEvent(event);
-    std::unique_ptr<QPixmap> newCanvas(new QPixmap(size()));
+    std::unique_ptr<QPixmap> newCanvas(new QPixmap(mCanvas->size().expandedTo(size())));
     newCanvas->fill(cBackground);
 
     QPainter painter(newCanvas.get());
@@ -70,8 +70,8 @@ void Canvas::tabletEvent(QTabletEvent *event)
         if(mIsDrawing) {
             QPoint newPos = event->pos();
             QPainter painter(mCanvas.get());
-            painter.setPen(mPen);
             mPen.setWidth(cPenWidth * event->pressure());
+            painter.setPen(mPen);
 
             painter.drawLine(mPrevPos, newPos);
 
