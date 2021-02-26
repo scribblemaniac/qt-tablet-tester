@@ -15,7 +15,7 @@ public:
     explicit CanvasWindow(QWidget *parent = nullptr);
     ~CanvasWindow();
 
-private:
+protected:
     Ui::CanvasWindow *ui;
 };
 

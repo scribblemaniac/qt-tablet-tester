@@ -13,11 +13,23 @@ Canvas::Canvas(QWidget *parent) :
 {
     setAttribute(Qt::WA_StaticContents);
 
-    mCanvas->fill(Qt::transparent);
+    mCanvas->fill(cBackground);
+
+    setMouseTracking(true); // reacts to mouse move events, even if the button is not pressed
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 9, 0)
+    setTabletTracking(true);
+#endif
 }
 
 Canvas::~Canvas()
 {
+}
+
+bool Canvas::event(QEvent *event)
+{
+    emit canvasEvent(event);
+    return QWidget::event(event);
 }
 
 void Canvas::paintEvent(QPaintEvent* event)
@@ -25,14 +37,20 @@ void Canvas::paintEvent(QPaintEvent* event)
     Q_UNUSED(event)
 
     QPainter painter(this);
+    // Draw strokes
     painter.drawPixmap(QPoint(0, 0), *mCanvas);
+
+    // Draw border
+    painter.setPen(QPen(Qt::black, 2));
+    painter.setBrush(QBrush());
+    painter.drawRect(rect().adjusted(1, 1, -1, -1));
 }
 
 void Canvas::resizeEvent(QResizeEvent* event)
 {
     QWidget::resizeEvent(event);
     std::unique_ptr<QPixmap> newCanvas(new QPixmap(size()));
-    newCanvas->fill(Qt::transparent);
+    newCanvas->fill(cBackground);
 
     QPainter painter(newCanvas.get());
     painter.drawPixmap(QPoint(0,0), *mCanvas);
@@ -58,7 +76,7 @@ void Canvas::tabletEvent(QTabletEvent *event)
             painter.drawLine(mPrevPos, newPos);
 
             mPrevPos = newPos;
-            update();
+            update(); // TODO Update only affected area
         }
     }
     else if(event->type() == QEvent::TabletRelease) {

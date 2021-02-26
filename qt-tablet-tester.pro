@@ -11,16 +11,21 @@ CONFIG += c++11
 SOURCES += \
     canvas.cpp \
     canvaswindow.cpp \
+    eventlogger.cpp \
+    eventloggerwindow.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     canvas.h \
     canvaswindow.h \
+    eventlogger.h \
+    eventloggerwindow.h \
     mainwindow.h
 
 FORMS += \
     canvaswindow.ui \
+    eventlogger.ui \
     mainwindow.ui
 
 TRANSLATIONS += \

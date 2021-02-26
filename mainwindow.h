@@ -18,6 +18,7 @@ public:
     static QString getVersionString();
 
 private:
+    void openEventLogger();
     void openFreeDraw();
 
     Ui::MainWindow *ui;
