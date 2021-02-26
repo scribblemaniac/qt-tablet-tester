@@ -31,6 +31,7 @@ private:
     Ui::EventLogger *ui;
 
     QElapsedTimer mTimer;
+    QString mSaveLocation;
 
     // TODO make const static
     QHash<QEvent::Type, QString> cTypeMap;

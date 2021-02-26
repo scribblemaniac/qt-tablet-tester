@@ -1,6 +1,11 @@
 #include "eventlogger.h"
 #include "ui_eventlogger.h"
 
+#include <QClipboard>
+#include <QDebug>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QStandardPaths>
 #include <QTabletEvent>
 
 EventLogger::EventLogger(QWidget *parent) :
@@ -15,6 +20,8 @@ EventLogger::EventLogger(QWidget *parent) :
 
     connect(ui->copyButton, &QPushButton::pressed, this, &EventLogger::copy);
     connect(ui->saveButton, &QPushButton::pressed, this, &EventLogger::save);
+
+    mSaveLocation = QDir(QStandardPaths::standardLocations(QStandardPaths::DownloadLocation).first()).filePath("TabletEvents.log");
 
     // Initialize Enum -> QString mappings
 
@@ -156,10 +163,19 @@ void EventLogger::canvasEvent(const QEvent *event)
 
 void EventLogger::copy()
 {
-    // TODO
+    QGuiApplication::clipboard()->setText(ui->log->toPlainText());
 }
 
 void EventLogger::save()
 {
-    // TODO
+    QString savePath = QFileDialog::getSaveFileName(this, tr("Save Event Log"), mSaveLocation);
+    if(!savePath.isEmpty()) {
+        QFile saveFile(savePath);
+        if (!saveFile.open(QIODevice::WriteOnly)) {
+            QMessageBox::critical(this, tr("Error"), tr("Could not open file, cannot save logs.", "EventLogger"));
+            return;
+        }
+        saveFile.write(ui->log->toPlainText().toUtf8());
+        mSaveLocation = savePath;
+    }
 }
