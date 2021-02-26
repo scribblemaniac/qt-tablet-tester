@@ -46,7 +46,7 @@
     <item>
      <widget class="QPushButton" name="reportRateButton">
       <property name="text">
-       <string>Report Rate Tester</string>
+       <string>Report Rate Tracker</string>
       </property>
      </widget>
     </item>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ReportRateTracker</class>
+ <widget class="QWidget" name="ReportRateTracker">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>547</width>
+    <height>280</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="title">
+     <property name="text">
+      <string>&lt;h3&gt;Tablet Report Rate Tracker&lt;/h3&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="description">
+     <property name="text">
+      <string>&lt;p&gt;The report rate tracker measures the frequency of unique tablet move events. The higher the report rate, the more data applications have on your strokes and theoretically the more accurately they can render your strokes. However, a very high report rate may cause your stroke to lag if the application is not designed to handle it. Typically tablet report rates peak at about 256 Hz.&lt;/p&gt;
+&lt;p&gt;You must hover and draw in the canvas above to test this property. In order to get the best results, for this test it is recommended that you try to make fast, large strokes.&lt;/p&gt;</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="1">
+      <widget class="QLabel" name="pressReportRate">
+       <property name="text">
+        <string>&lt;h1&gt;0 Hz&lt;/h1&gt;&lt;small&gt;Peak: 0 Hz&lt;/small&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="hoverReportRate">
+       <property name="text">
+        <string>&lt;h1&gt;0 Hz&lt;/h1&gt;&lt;small&gt;Peak: 0 Hz&lt;/small&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="hoverReporRateLabel">
+       <property name="text">
+        <string>Hovering Report Rate</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="pressReportRateLabel">
+       <property name="text">
+        <string>Pressed Report Rate</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

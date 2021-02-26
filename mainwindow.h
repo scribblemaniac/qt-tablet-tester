@@ -18,6 +18,7 @@ public:
     static QString getVersionString();
 
 private:
+    void openReportRateTracker();
     void openEventLogger();
     void openFreeDraw();
 

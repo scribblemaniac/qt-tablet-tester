@@ -14,19 +14,24 @@ SOURCES += \
     eventlogger.cpp \
     eventloggerwindow.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    reportratetracker.cpp \
+    reportratetrackerwindow.cpp
 
 HEADERS += \
     canvas.h \
     canvaswindow.h \
     eventlogger.h \
     eventloggerwindow.h \
-    mainwindow.h
+    mainwindow.h \
+    reportratetracker.h \
+    reportratetrackerwindow.h
 
 FORMS += \
     canvaswindow.ui \
     eventlogger.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    reportratetracker.ui
 
 TRANSLATIONS += \
     qt-tablet-tester_en_US.ts
