@@ -4,6 +4,7 @@
 #include "canvaswindow.h"
 #include "eventloggerwindow.h"
 #include "reportratetrackerwindow.h"
+#include "rotationtrackerwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->title->setText(ui->title->text().arg(versionStr));
 
     connect(ui->reportRateButton, &QPushButton::pressed, this, &MainWindow::openReportRateTracker);
+    connect(ui->rotationButton, &QPushButton::pressed, this, &MainWindow::openRotationTracker);
     connect(ui->eventLoggerButton, &QPushButton::pressed, this, &MainWindow::openEventLogger);
     connect(ui->freeDrawButton, &QPushButton::pressed, this, &MainWindow::openFreeDraw);
 }
@@ -53,6 +55,12 @@ QString MainWindow::getVersionString()
 void MainWindow::openReportRateTracker()
 {
     ReportRateTrackerWindow *window = new ReportRateTrackerWindow(this);
+    window->show();
+}
+
+void MainWindow::openRotationTracker()
+{
+    RotationTrackerWindow *window = new RotationTrackerWindow(this);
     window->show();
 }
 

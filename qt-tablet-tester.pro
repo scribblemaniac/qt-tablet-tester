@@ -16,7 +16,9 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     reportratetracker.cpp \
-    reportratetrackerwindow.cpp
+    reportratetrackerwindow.cpp \
+    rotationtracker.cpp \
+    rotationtrackerwindow.cpp
 
 HEADERS += \
     canvas.h \
@@ -25,13 +27,16 @@ HEADERS += \
     eventloggerwindow.h \
     mainwindow.h \
     reportratetracker.h \
-    reportratetrackerwindow.h
+    reportratetrackerwindow.h \
+    rotationtracker.h \
+    rotationtrackerwindow.h
 
 FORMS += \
     canvaswindow.ui \
     eventlogger.ui \
     mainwindow.ui \
-    reportratetracker.ui
+    reportratetracker.ui \
+    rotationtracker.ui
 
 TRANSLATIONS += \
     qt-tablet-tester_en_US.ts

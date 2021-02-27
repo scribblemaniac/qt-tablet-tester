@@ -19,6 +19,7 @@ public:
 
 private:
     void openReportRateTracker();
+    void openRotationTracker();
     void openEventLogger();
     void openFreeDraw();
 
