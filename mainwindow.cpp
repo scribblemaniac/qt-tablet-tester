@@ -3,6 +3,7 @@
 
 #include "canvaswindow.h"
 #include "eventloggerwindow.h"
+#include "pressureleveltesterwindow.h"
 #include "reportratetrackerwindow.h"
 #include "rotationtrackerwindow.h"
 
@@ -17,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowTitle(windowTitle().arg(versionStr));
     ui->title->setText(ui->title->text().arg(versionStr));
 
+    connect(ui->pressureLevelButton, &QPushButton::pressed, this, &MainWindow::openPressureLevelTester);
     connect(ui->reportRateButton, &QPushButton::pressed, this, &MainWindow::openReportRateTracker);
     connect(ui->rotationButton, &QPushButton::pressed, this, &MainWindow::openRotationTracker);
     connect(ui->eventLoggerButton, &QPushButton::pressed, this, &MainWindow::openEventLogger);
@@ -50,6 +52,12 @@ QString MainWindow::getVersionString()
     // Modifed/Umodifed Qt?
 
     return versionString;
+}
+
+void MainWindow::openPressureLevelTester()
+{
+    PressureLevelTesterWindow *window = new PressureLevelTesterWindow(this);
+    window->show();
 }
 
 void MainWindow::openReportRateTracker()

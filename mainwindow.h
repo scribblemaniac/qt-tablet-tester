@@ -18,6 +18,7 @@ public:
     static QString getVersionString();
 
 private:
+    void openPressureLevelTester();
     void openReportRateTracker();
     void openRotationTracker();
     void openEventLogger();
