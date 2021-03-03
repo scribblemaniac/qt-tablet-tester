@@ -9,7 +9,7 @@ EventLoggerWindow::EventLoggerWindow(QWidget *parent) :
 {
     ui->verticalLayout->addWidget(mEventLogger);
 
-    setWindowTitle("Event Logger");
+    setWindowTitle(tr("Event Logger"));
 
     connect(ui->canvas, &Canvas::canvasEvent, mEventLogger, &EventLogger::canvasEvent);
 }

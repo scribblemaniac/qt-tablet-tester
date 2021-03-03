@@ -52,7 +52,7 @@ To best test stylus rotation, it is recommended that you keep the stylus perpend
    <item>
     <widget class="QLabel" name="degreeLabel">
      <property name="text">
-      <string>&lt;h1&gt;0.00°&lt;/h1&gt;</string>
+      <string notr="true">&lt;h1&gt;0.00°&lt;/h1&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

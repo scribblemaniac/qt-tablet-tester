@@ -9,7 +9,7 @@ ReportRateTesterWindow::ReportRateTesterWindow(QWidget *parent) :
 {
     ui->verticalLayout->addWidget(mReportRateTester);
 
-    setWindowTitle("Tablet Report Rate Tester");
+    setWindowTitle(tr("Tablet Report Rate Tester"));
 
     connect(ui->canvas, &Canvas::canvasEvent, mReportRateTester, &ReportRateTester::canvasEvent);
 }

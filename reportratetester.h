@@ -24,6 +24,7 @@ public slots:
 
 private:
     void updateRates();
+    void updateLabels();
 
     Ui::ReportRateTester *ui;
 

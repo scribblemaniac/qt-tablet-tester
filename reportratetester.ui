@@ -37,7 +37,7 @@
      <item row="0" column="1">
       <widget class="QLabel" name="pressReportRate">
        <property name="text">
-        <string>&lt;h1&gt;0 Hz&lt;/h1&gt;&lt;small&gt;Peak: 0 Hz&lt;/small&gt;</string>
+        <string notr="true">&lt;h1&gt;0 Hz&lt;/h1&gt;&lt;small&gt;Peak: 0 Hz&lt;/small&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -47,7 +47,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="hoverReportRate">
        <property name="text">
-        <string>&lt;h1&gt;0 Hz&lt;/h1&gt;&lt;small&gt;Peak: 0 Hz&lt;/small&gt;</string>
+        <string notr="true">&lt;h1&gt;0 Hz&lt;/h1&gt;&lt;small&gt;Peak: 0 Hz&lt;/small&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

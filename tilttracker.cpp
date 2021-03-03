@@ -45,8 +45,8 @@ void TiltTracker::canvasEvent(const QEvent *event)
             ui->tiltIndicator->setMaxArea(mMaxArea);
         }
 
-        ui->tiltX->setText(QString("<h1>%1°</h1>").arg(QString::number(xTilt, 'f', 2)));
-        ui->tiltY->setText(QString("<h1>%1°</h1>").arg(QString::number(yTilt, 'f', 2)));
+        ui->tiltX->setText(QString("<h1>%1</h1>").arg(tr("%1°").arg(QString::number(xTilt, 'f', 2))));
+        ui->tiltY->setText(QString("<h1>%1</h1>").arg(tr("%1°").arg(QString::number(yTilt, 'f', 2))));
 
         ui->tiltIndicator->setTilt(xTilt, yTilt);
     }

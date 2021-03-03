@@ -4,7 +4,7 @@
 #include <QElapsedTimer>
 #include <QTabletEvent>
 
-const QString ReportRateTester::cLabelTemplate = tr("<h1>%1 Hz</h1><small>Peak: %2 Hz</small>");
+const QString ReportRateTester::cLabelTemplate = tr("<h1>%1</h1><small>%2</small>");
 
 ReportRateTester::ReportRateTester(QWidget *parent) :
     QWidget(parent),
@@ -15,6 +15,8 @@ ReportRateTester::ReportRateTester(QWidget *parent) :
 
     connect(&mUpdateTimer, &QTimer::timeout, this, &ReportRateTester::updateRates);
     mUpdateTimer.start(200);
+
+    updateLabels();
 }
 
 ReportRateTester::~ReportRateTester()
@@ -34,13 +36,19 @@ void ReportRateTester::updateRates() {
         mHoverQueue.removeLast();
     }
     mMaxHoverRate = qMax(mMaxHoverRate, mHoverQueue.count());
-    ui->hoverReportRate->setText(cLabelTemplate.arg(mHoverQueue.count()).arg(mMaxHoverRate));
 
     while(!mPressQueue.isEmpty() && mPressQueue.last().hasExpired(1000)) {
         mPressQueue.removeLast();
     }
     mMaxPressRate = qMax(mMaxPressRate, mPressQueue.count());
-    ui->pressReportRate->setText(cLabelTemplate.arg(mPressQueue.count()).arg(mMaxPressRate));
+
+    updateLabels();
+}
+
+void ReportRateTester::updateLabels()
+{
+    ui->hoverReportRate->setText(cLabelTemplate.arg(tr("%1 Hz", "ReportRateTracker").arg(mHoverQueue.count())).arg(tr("Peak: %1 Hz", "ReportRateTracker").arg(mMaxHoverRate)));
+    ui->pressReportRate->setText(cLabelTemplate.arg(tr("%1 Hz", "ReportRateTracker").arg(mPressQueue.count())).arg(tr("Peak: %1 Hz", "ReportRateTracker").arg(mMaxPressRate)));
 }
 
 void ReportRateTester::canvasEvent(const QEvent *event)

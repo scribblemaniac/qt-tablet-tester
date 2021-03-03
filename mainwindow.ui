@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>530</width>
-    <height>358</height>
+    <height>310</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <item>
      <widget class="QLabel" name="title">
       <property name="text">
-       <string>&lt;h1&gt;Qt Tablet Tester %1&lt;/h1&gt;</string>
+       <string>&lt;h1&gt;Qt Tablet Tester&lt;/h1&gt;</string>
       </property>
      </widget>
     </item>
@@ -39,7 +39,7 @@
     <item>
      <widget class="QPushButton" name="tiltButton">
       <property name="text">
-       <string>Tilt Tester</string>
+       <string>Stylus Tilt Tester</string>
       </property>
      </widget>
     </item>
@@ -80,17 +80,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>530</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

@@ -9,7 +9,7 @@ RotationTrackerWindow::RotationTrackerWindow(QWidget *parent) :
 {
     ui->verticalLayout->addWidget(mRotationTracker);
 
-    setWindowTitle("Stylus Rotation Tracker");
+    setWindowTitle(tr("Stylus Rotation Tracker"));
 
     connect(ui->canvas, &Canvas::canvasEvent, mRotationTracker, &RotationTracker::canvasEvent);
 }

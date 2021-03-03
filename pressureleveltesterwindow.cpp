@@ -9,7 +9,7 @@ PressureLevelTesterWindow::PressureLevelTesterWindow(QWidget *parent) :
 {
     ui->verticalLayout->addWidget(mPressureLevelTester);
 
-    setWindowTitle("Tablet Pressure Level Tester");
+    setWindowTitle(tr("Tablet Pressure Level Tester"));
 
     connect(ui->canvas, &Canvas::canvasEvent, mPressureLevelTester, &PressureLevelTester::canvasEvent);
 }

@@ -52,14 +52,14 @@
      <item>
       <widget class="QPushButton" name="copyButton">
        <property name="text">
-        <string>Copy to Clipboard</string>
+        <string comment="EventLogger">Copy to Clipboard</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="saveButton">
        <property name="text">
-        <string>Save to File</string>
+        <string comment="EventLogger">Save to File</string>
        </property>
       </widget>
      </item>

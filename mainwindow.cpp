@@ -4,7 +4,7 @@
 #include "canvaswindow.h"
 #include "eventloggerwindow.h"
 #include "pressureleveltesterwindow.h"
-#include "reportratetrackerwindow.h"
+#include "reportratetesterwindow.h"
 #include "rotationtrackerwindow.h"
 #include "tilttrackerwindow.h"
 
@@ -70,7 +70,7 @@ void MainWindow::openTiltTracker()
 
 void MainWindow::openReportRateTracker()
 {
-    ReportRateTrackerWindow *window = new ReportRateTrackerWindow(this);
+    ReportRateTesterWindow *window = new ReportRateTesterWindow(this);
     window->show();
 }
 

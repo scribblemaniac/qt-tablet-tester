@@ -9,7 +9,7 @@ TiltTrackerWindow::TiltTrackerWindow(QWidget *parent) :
 {
     ui->verticalLayout->addWidget(mTiltTracker);
 
-    setWindowTitle("Stylus Tilt Tracker");
+    setWindowTitle(tr("Stylus Tilt Tracker"));
 
     connect(ui->canvas, &Canvas::canvasEvent, mTiltTracker, &TiltTracker::canvasEvent);
 }
