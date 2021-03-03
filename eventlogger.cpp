@@ -144,7 +144,7 @@ void EventLogger::canvasEvent(const QEvent *event)
                       << QString("GlobalX=%1").arg(tabletEvent->globalX()) << QString("GlobalY=%1").arg(tabletEvent->globalY())
                       << QString("Pos=[%1,%2]").arg(tabletEvent->pos().x()).arg(tabletEvent->pos().y())
                       << QString("PosF=[%1,%2]").arg(tabletEvent->posF().x()).arg(tabletEvent->posF().y())
-                      << QString("X=%1").arg(tabletEvent->x()) << QString("Y=%2").arg(tabletEvent->y());
+                      << QString("X=%1").arg(tabletEvent->x()) << QString("Y=%1").arg(tabletEvent->y()) << QString("Z=%1").arg(tabletEvent->z());
 
             eventData << QString("Pressure=%1").arg(tabletEvent->pressure())
                       << QString("Rotation=%1").arg(tabletEvent->rotation())
