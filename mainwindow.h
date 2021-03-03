@@ -19,6 +19,7 @@ public:
 
 private:
     void openPressureLevelTester();
+    void openTiltTracker();
     void openReportRateTracker();
     void openRotationTracker();
     void openEventLogger();

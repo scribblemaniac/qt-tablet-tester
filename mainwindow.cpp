@@ -6,6 +6,7 @@
 #include "pressureleveltesterwindow.h"
 #include "reportratetrackerwindow.h"
 #include "rotationtrackerwindow.h"
+#include "tilttrackerwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->title->setText(ui->title->text().arg(versionStr));
 
     connect(ui->pressureLevelButton, &QPushButton::pressed, this, &MainWindow::openPressureLevelTester);
+    connect(ui->tiltButton, &QPushButton::pressed, this, &MainWindow::openTiltTracker);
     connect(ui->reportRateButton, &QPushButton::pressed, this, &MainWindow::openReportRateTracker);
     connect(ui->rotationButton, &QPushButton::pressed, this, &MainWindow::openRotationTracker);
     connect(ui->eventLoggerButton, &QPushButton::pressed, this, &MainWindow::openEventLogger);
@@ -57,6 +59,12 @@ QString MainWindow::getVersionString()
 void MainWindow::openPressureLevelTester()
 {
     PressureLevelTesterWindow *window = new PressureLevelTesterWindow(this);
+    window->show();
+}
+
+void MainWindow::openTiltTracker()
+{
+    TiltTrackerWindow *window = new  TiltTrackerWindow(this);
     window->show();
 }
 

@@ -22,7 +22,10 @@ SOURCES += \
     reportratetracker.cpp \
     reportratetrackerwindow.cpp \
     rotationtracker.cpp \
-    rotationtrackerwindow.cpp
+    rotationtrackerwindow.cpp \
+    tiltindicator.cpp \
+    tilttracker.cpp \
+    tilttrackerwindow.cpp
 
 HEADERS += \
     canvas.h \
@@ -35,7 +38,10 @@ HEADERS += \
     reportratetracker.h \
     reportratetrackerwindow.h \
     rotationtracker.h \
-    rotationtrackerwindow.h
+    rotationtrackerwindow.h \
+    tiltindicator.h \
+    tilttracker.h \
+    tilttrackerwindow.h
 
 FORMS += \
     canvaswindow.ui \
@@ -43,7 +49,8 @@ FORMS += \
     mainwindow.ui \
     pressureleveltester.ui \
     reportratetracker.ui \
-    rotationtracker.ui
+    rotationtracker.ui \
+    tilttracker.ui
 
 TRANSLATIONS += \
     qt-tablet-tester_en_US.ts
