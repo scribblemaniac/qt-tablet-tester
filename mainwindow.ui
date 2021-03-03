@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>530</width>
-    <height>325</height>
+    <height>358</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,7 +46,7 @@
     <item>
      <widget class="QPushButton" name="reportRateButton">
       <property name="text">
-       <string>Report Rate Tracker</string>
+       <string>Report Rate Tester</string>
       </property>
      </widget>
     </item>

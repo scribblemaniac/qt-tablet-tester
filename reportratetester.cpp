@@ -1,23 +1,23 @@
-#include "reportratetracker.h"
-#include "ui_reportratetracker.h"
+#include "reportratetester.h"
+#include "ui_reportratetester.h"
 
 #include <QElapsedTimer>
 #include <QTabletEvent>
 
-const QString ReportRateTracker::cLabelTemplate = tr("<h1>%1 Hz</h1><small>Peak: %2 Hz</small>");
+const QString ReportRateTester::cLabelTemplate = tr("<h1>%1 Hz</h1><small>Peak: %2 Hz</small>");
 
-ReportRateTracker::ReportRateTracker(QWidget *parent) :
+ReportRateTester::ReportRateTester(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::ReportRateTracker),
+    ui(new Ui::ReportRateTester),
     mUpdateTimer(this)
 {
     ui->setupUi(this);
 
-    connect(&mUpdateTimer, &QTimer::timeout, this, &ReportRateTracker::updateRates);
+    connect(&mUpdateTimer, &QTimer::timeout, this, &ReportRateTester::updateRates);
     mUpdateTimer.start(200);
 }
 
-ReportRateTracker::~ReportRateTracker()
+ReportRateTester::~ReportRateTester()
 {
     delete ui;
     if(mLastHoverEvent) {
@@ -29,7 +29,7 @@ ReportRateTracker::~ReportRateTracker()
 }
 
 // TODO Improve algorithm. Check all 1 second intervals for max, show average of 1 second intervals between updateRates calls.
-void ReportRateTracker::updateRates() {
+void ReportRateTester::updateRates() {
     while(!mHoverQueue.isEmpty() && mHoverQueue.last().hasExpired(1000)) {
         mHoverQueue.removeLast();
     }
@@ -43,7 +43,7 @@ void ReportRateTracker::updateRates() {
     ui->pressReportRate->setText(cLabelTemplate.arg(mPressQueue.count()).arg(mMaxPressRate));
 }
 
-void ReportRateTracker::canvasEvent(const QEvent *event)
+void ReportRateTester::canvasEvent(const QEvent *event)
 {
     if(event->type() == QEvent::TabletMove) {
         const QTabletEvent *tabletEvent = static_cast<const QTabletEvent *>(event);

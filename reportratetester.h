@@ -1,23 +1,23 @@
-#ifndef REPORTRATETRACKER_H
-#define REPORTRATETRACKER_H
+#ifndef REPORTRATETESTER_H
+#define REPORTRATETESTER_H
 
 #include <QList>
 #include <QTimer>
 #include <QWidget>
 
 namespace Ui {
-    class ReportRateTracker;
+    class ReportRateTester;
 }
 
 class QElapsedTimer;
 
-class ReportRateTracker : public QWidget
+class ReportRateTester : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit ReportRateTracker(QWidget *parent = nullptr);
-    ~ReportRateTracker();
+    explicit ReportRateTester(QWidget *parent = nullptr);
+    ~ReportRateTester();
 
 public slots:
     void canvasEvent(const QEvent *event);
@@ -25,7 +25,7 @@ public slots:
 private:
     void updateRates();
 
-    Ui::ReportRateTracker *ui;
+    Ui::ReportRateTester *ui;
 
     QTimer mUpdateTimer;
 
@@ -40,4 +40,4 @@ private:
     static const QString cLabelTemplate;
 };
 
-#endif // REPORTRATETRACKER_H
+#endif // REPORTRATETESTER_H

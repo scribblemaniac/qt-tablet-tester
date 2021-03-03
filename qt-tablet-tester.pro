@@ -19,8 +19,8 @@ SOURCES += \
     mainwindow.cpp \
     pressureleveltester.cpp \
     pressureleveltesterwindow.cpp \
-    reportratetracker.cpp \
-    reportratetrackerwindow.cpp \
+    reportratetester.cpp \
+    reportratetesterwindow.cpp \
     rotationtracker.cpp \
     rotationtrackerwindow.cpp \
     tiltindicator.cpp \
@@ -35,8 +35,8 @@ HEADERS += \
     mainwindow.h \
     pressureleveltester.h \
     pressureleveltesterwindow.h \
-    reportratetracker.h \
-    reportratetrackerwindow.h \
+    reportratetester.h \
+    reportratetesterwindow.h \
     rotationtracker.h \
     rotationtrackerwindow.h \
     tiltindicator.h \
@@ -48,7 +48,7 @@ FORMS += \
     eventlogger.ui \
     mainwindow.ui \
     pressureleveltester.ui \
-    reportratetracker.ui \
+    reportratetester.ui \
     rotationtracker.ui \
     tilttracker.ui
 
