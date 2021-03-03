@@ -30,6 +30,10 @@ EventLogger::EventLogger(QWidget *parent) :
     cTypeMap[QEvent::TabletRelease] = "TabletRelease";
     cTypeMap[QEvent::TabletEnterProximity] = "TabletEnterProximity";
     cTypeMap[QEvent::TabletLeaveProximity] = "TabletLeaveProximity";
+    cTypeMap[QEvent::MouseButtonPress] = "MouseButtonPress";
+    cTypeMap[QEvent::MouseButtonRelease] = "MouseButton Release";
+    cTypeMap[QEvent::MouseButtonDblClick] = "MouseButtonDblClick";
+    cTypeMap[QEvent::MouseMove] = "MouseMove";
 
     cMouseButtonMap[Qt::NoButton] = "NoButton";
     cMouseButtonMap[Qt::AllButtons] = "AllButtons";
@@ -60,6 +64,13 @@ EventLogger::EventLogger(QWidget *parent) :
     cMouseButtonMap[Qt::ExtraButton22] = "ExtraButton22";
     cMouseButtonMap[Qt::ExtraButton23] = "ExtraButton23";
     cMouseButtonMap[Qt::ExtraButton24] = "ExtraButton24";
+
+    cMouseFlagMap[Qt::MouseEventCreatedDoubleClick] = "MouseEventCreatedDoubleClick";
+
+    cMouseSourceMap[Qt::MouseEventNotSynthesized] = "MouseEventNotSynthesized";
+    cMouseSourceMap[Qt::MouseEventSynthesizedBySystem] = "MouseEventSynthesizedBySystem";
+    cMouseSourceMap[Qt::MouseEventSynthesizedByQt] = "MouseEventSynthesizedByQt";
+    cMouseSourceMap[Qt::MouseEventSynthesizedByApplication] = "MouseEventSynthesizedByApplication";
 
     cPointerTypeMap[QTabletEvent::UnknownPointer] = "UnknownPointer";
     cPointerTypeMap[QTabletEvent::Pen] = "Pen";
@@ -154,6 +165,75 @@ void EventLogger::canvasEvent(const QEvent *event)
 
             break;
         }
+    case QEvent::MouseButtonPress:
+    case QEvent::MouseButtonRelease:
+    case QEvent::MouseButtonDblClick:
+    case QEvent::MouseMove: {
+        const QMouseEvent *mouseEvent = static_cast<const QMouseEvent *>(event);
+        eventName = "QMouseEvent";
+
+        eventData << QString("Type=").append(cTypeMap[event->type()]);
+
+        if(cMouseButtonMap.contains(mouseEvent->button())) {
+            eventData << QString("Button=").append(cMouseButtonMap[mouseEvent->button()]);
+        }
+        else {
+            eventData << QString("Button=").append(QString("UnknownButton[0x%1]").arg(mouseEvent->button(), 8, 16, QLatin1Char('0')));
+        }
+        if(!mouseEvent->buttons()) {
+            eventData << QString("Buttons=").append(cMouseButtonMap[Qt::NoButton]);
+        }
+        else {
+            QStringList buttonsData;
+            Qt::MouseButtons foundButtons;
+            for(Qt::MouseButton buttonType : cMouseButtonMap.keys()) {
+                if(buttonType == Qt::NoButton || buttonType == Qt::AllButtons) continue;
+                if(mouseEvent->buttons().testFlag(buttonType)) {
+                    buttonsData << cMouseButtonMap[buttonType];
+                    foundButtons.setFlag(buttonType);
+                }
+            }
+            if(mouseEvent->buttons() != foundButtons) {
+                buttonsData << QString("UnknownButtons[0x%1]").arg(mouseEvent->buttons()^foundButtons, 8, 16, QLatin1Char('0'));
+            }
+            eventData << QString("Buttons=[%1]").arg(buttonsData.join(','));
+        }
+
+        if(!mouseEvent->flags()) {
+            eventData << QString("Flags=NoFlags");
+        }
+        else {
+            QStringList flagsData;
+            Qt::MouseEventFlags foundFlags;
+            for(Qt::MouseEventFlag flagType : cMouseFlagMap.keys()) {
+                if(mouseEvent->flags().testFlag(flagType)) {
+                    flagsData << cMouseFlagMap[flagType];
+                    foundFlags.setFlag(flagType);
+                }
+            }
+            if(mouseEvent->flags() != foundFlags) {
+                flagsData << QString("UnknownFlags[0x%1]").arg(mouseEvent->flags()^foundFlags, 8, 16, QLatin1Char('0'));
+            }
+            eventData << QString("Flags=[%1]").arg(flagsData.join(','));
+        }
+
+        eventData << QString("GlobalPos=[%1,%2]").arg(mouseEvent->globalPos().x()).arg(mouseEvent->globalPos().y())
+                  << QString("GlobalX=%1").arg(mouseEvent->globalX()) << QString("GlobalY=%1").arg(mouseEvent->globalY())
+                  << QString("LocalPos=[%1,%2]").arg(mouseEvent->localPos().x()).arg(mouseEvent->localPos().y())
+                  << QString("Pos=[%1,%2]").arg(mouseEvent->pos().x()).arg(mouseEvent->pos().y())
+                  << QString("X=%1").arg(mouseEvent->x()) << QString("Y=%1").arg(mouseEvent->y())
+                  << QString("ScreenPos=[%1,%2]").arg(mouseEvent->screenPos().x()).arg(mouseEvent->screenPos().y())
+                  << QString("WindowPos=[%1,%2]").arg(mouseEvent->windowPos().x()).arg(mouseEvent->windowPos().y());
+
+        if(cMouseSourceMap.contains(mouseEvent->source())) {
+            eventData << QString("Source=").append(cMouseSourceMap[mouseEvent->source()]);
+        }
+        else {
+            eventData << QString("Source=").append(QString("UnknownSource[0x%1]").arg(mouseEvent->source(), 8, 16, QLatin1Char('0')));
+        }
+
+        break;
+    }
         default: {
             return;
         }

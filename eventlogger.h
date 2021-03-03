@@ -36,6 +36,8 @@ private:
     // TODO make const static
     QHash<QEvent::Type, QString> cTypeMap;
     QHash<Qt::MouseButton, QString> cMouseButtonMap;
+    QHash<Qt::MouseEventFlag, QString> cMouseFlagMap;
+    QHash<Qt::MouseEventSource, QString> cMouseSourceMap;
     QHash<QTabletEvent::PointerType, QString> cPointerTypeMap;
     QHash<QTabletEvent::TabletDevice, QString> cTabletDeviceMap;
 };
