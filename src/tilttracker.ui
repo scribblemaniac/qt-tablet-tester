@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>562</width>
+    <height>366</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -30,7 +30,11 @@
    <item>
     <widget class="QLabel" name="description">
      <property name="text">
-      <string>TODO description</string>
+      <string>&lt;p&gt;The stylus tilt tracker displays the current tilt angles of the stylus, if it is supported. Typically only higher-end tablets have support for this feature. If your tablet does not have support for this feature, both values will be show as 0.00°. The X Tilt is the angle between the stylus and the x axis of the tablet, while Y Tilt is the angle between the stylus and the y axis of the tablet. The visual indicator shows the two angles together, as if you were looking at the tablet from above. The green area shows the range of tilt angles that have been observed.&lt;/p&gt;
+&lt;p&gt;To best test stylus rotation, it is recommended that you start with your pen perpendicular to the tablet, then try tilting it in each of the four cardinal directions until the reading does not get any higher/lower. If your tablet supports the full range of tilt values, it should go up to 60°/-60°. You should also roll the tablet around to test the full range of tilt angle combinations.&lt;/p&gt;</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
@@ -49,7 +53,7 @@
      <item row="0" column="1">
       <widget class="QLabel" name="tiltY">
        <property name="text">
-        <string notr="true">&lt;h1&gt;0.00&lt;/h1&gt;</string>
+        <string notr="true">&lt;h1&gt;0.00°&lt;/h1&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -59,7 +63,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="tiltX">
        <property name="text">
-        <string notr="true">&lt;h1&gt;0.00&lt;/h1&gt;</string>
+        <string notr="true">&lt;h1&gt;0.00°&lt;/h1&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

@@ -24,9 +24,8 @@
    <item>
     <widget class="QLabel" name="description">
      <property name="text">
-      <string>The stylus rotation tracker displays the current rotation of the stylus, if it is supported. Typically only high-end styluses have support for this feature. If your tablet does not support rotation, this will always show 0.00°. Do not confuse this feature with tilt; tilt is measuring angles between the pen and the tablet, while rotation is just the rotation of the pen (think of the movement of twisting the stylus in your fingers).
-
-To best test stylus rotation, it is recommended that you keep the stylus perpendicular to your tablet and roll it in your fingers. You may have to be pressing on the tablet with it for it to work. If this does work, then you can experiment with rotating it as you tilt the pen or draw with it.</string>
+      <string>&lt;p&gt;The stylus rotation tracker displays the current rotation of the stylus, if it is supported. Typically only high-end styluses have support for this feature. If your tablet does not support rotation, this will always show 0.00°. Do not confuse this feature with tilt; tilt is measuring angles between the pen and the tablet, while rotation is just the rotation of the pen (think of the movement of twisting the stylus in your fingers).&lt;/p&gt;
+&lt;p&gt;To best test stylus rotation, it is recommended that you keep the stylus perpendicular to your tablet and roll it in your fingers. You may have to be pressing on the tablet with it for it to work. If this does work, then you can experiment with rotating it as you tilt the pen or draw with it.&lt;/p&gt;</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
