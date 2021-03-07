@@ -94,7 +94,7 @@
   <customwidget>
    <class>TiltIndicator</class>
    <extends>QWidget</extends>
-   <header>tiltindicator.h</header>
+   <header>src/tiltindicator.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

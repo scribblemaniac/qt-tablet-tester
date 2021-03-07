@@ -1,7 +1,7 @@
 #include "eventloggerwindow.h"
 #include "ui_canvaswindow.h"
 
-#include <eventlogger.h>
+#include "eventlogger.h"
 
 EventLoggerWindow::EventLoggerWindow(QWidget *parent) :
     CanvasWindow(parent),

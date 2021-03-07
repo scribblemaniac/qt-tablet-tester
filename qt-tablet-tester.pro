@@ -11,46 +11,46 @@ QT += charts
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    canvas.cpp \
-    canvaswindow.cpp \
-    eventlogger.cpp \
-    eventloggerwindow.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    pressureleveltester.cpp \
-    pressureleveltesterwindow.cpp \
-    reportratetester.cpp \
-    reportratetesterwindow.cpp \
-    rotationtracker.cpp \
-    rotationtrackerwindow.cpp \
-    tiltindicator.cpp \
-    tilttracker.cpp \
-    tilttrackerwindow.cpp
+    src/canvas.cpp \
+    src/canvaswindow.cpp \
+    src/eventlogger.cpp \
+    src/eventloggerwindow.cpp \
+    src/main.cpp \
+    src/mainwindow.cpp \
+    src/pressureleveltester.cpp \
+    src/pressureleveltesterwindow.cpp \
+    src/reportratetester.cpp \
+    src/reportratetesterwindow.cpp \
+    src/rotationtracker.cpp \
+    src/rotationtrackerwindow.cpp \
+    src/tiltindicator.cpp \
+    src/tilttracker.cpp \
+    src/tilttrackerwindow.cpp
 
 HEADERS += \
-    canvas.h \
-    canvaswindow.h \
-    eventlogger.h \
-    eventloggerwindow.h \
-    mainwindow.h \
-    pressureleveltester.h \
-    pressureleveltesterwindow.h \
-    reportratetester.h \
-    reportratetesterwindow.h \
-    rotationtracker.h \
-    rotationtrackerwindow.h \
-    tiltindicator.h \
-    tilttracker.h \
-    tilttrackerwindow.h
+    src/canvas.h \
+    src/canvaswindow.h \
+    src/eventlogger.h \
+    src/eventloggerwindow.h \
+    src/mainwindow.h \
+    src/pressureleveltester.h \
+    src/pressureleveltesterwindow.h \
+    src/reportratetester.h \
+    src/reportratetesterwindow.h \
+    src/rotationtracker.h \
+    src/rotationtrackerwindow.h \
+    src/tiltindicator.h \
+    src/tilttracker.h \
+    src/tilttrackerwindow.h
 
 FORMS += \
-    canvaswindow.ui \
-    eventlogger.ui \
-    mainwindow.ui \
-    pressureleveltester.ui \
-    reportratetester.ui \
-    rotationtracker.ui \
-    tilttracker.ui
+    src/canvaswindow.ui \
+    src/eventlogger.ui \
+    src/mainwindow.ui \
+    src/pressureleveltester.ui \
+    src/reportratetester.ui \
+    src/rotationtracker.ui \
+    src/tilttracker.ui
 
 TRANSLATIONS += \
     qt-tablet-tester_en_US.ts
