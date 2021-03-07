@@ -11,6 +11,7 @@ TiltIndicator::TiltIndicator(QWidget *parent) : QWidget(parent)
 
 void TiltIndicator::paintEvent(QPaintEvent* event)
 {
+    Q_UNUSED(event)
     QPainter painter(this);
 
     QPoint center = rect().center();
